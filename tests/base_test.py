@@ -5,6 +5,7 @@ from market import app, db
 class BaseTest(TestCase):
     def setUp(self):
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
+        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         app.config['WTF_CSRF_ENABLED'] = False
         with app.app_context():
             db.init_app(app)
